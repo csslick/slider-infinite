@@ -9,6 +9,14 @@
   box-sizing: border-box;
 }
 
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .sliders {
   position: relative;
   width: var(--slider-width);
@@ -35,4 +43,8 @@
 .slider.next {
   left: var(--slider-width);
   opacity: 0;
+}
+
+.btn-group {
+  margin-top: 20px;
 }
