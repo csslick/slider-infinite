@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+  
+  <div class="sliders">
+    <div class="slider current">
+      <img src="https://via.placeholder.com/400x200/ff0?text=1" alt="1">
+    </div>
+    <div class="slider next">
+      <img src="https://via.placeholder.com/400x200/f6f?text=2" alt="2">
+    </div>
+    <div class="slider prev">
+      <img src="https://via.placeholder.com/400x200/0ff?text=3" alt="3">
+    </div>
+  </div>
+  <button class="prev-btn">prev</button>
+  <button class="next-btn">next</button>
+
+  <script>
+    var img_num = 0;
+
+    $('.next-btn').click(function(){
+      img_num++;
+      console.log('length = ', $('.slider').length)
+      if(img_num > 2) { img_num = 0; }
+      var prev_num = img_num == 0 ? 2 : img_num - 1;
+      var next_num = img_num == $('.slider').length-1 ? 0 : img_num + 1;
+      console.log(prev_num, img_num, next_num);
+      $('.sliders > .slider').removeClass('prev next current');
+      $('.sliders > .slider').eq(img_num).addClass('current');
+
+      $('.sliders > .slider').eq(prev_num).addClass('prev')
+      $('.sliders > .slider').eq(next_num).addClass('next')
+    })
+  </script>
+</body>
+</html>

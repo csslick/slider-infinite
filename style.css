@@ -1,0 +1,38 @@
+:root {
+  --slider-width: 400px;
+  --slider-minus-width: -200px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.sliders {
+  position: relative;
+  width: var(--slider-width);
+  height: 200px;
+  outline: 2px solid;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.slider {
+  position: absolute;
+  transition: 0.4s;
+}
+.slider.current {
+  left: 0;
+  z-index: 9;
+  opacity: 1;
+}
+.slider.prev {
+  left: var(--slider-minus-width);
+  opacity: 0;
+}
+
+.slider.next {
+  left: var(--slider-width);
+  opacity: 0;
+}
