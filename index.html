@@ -31,14 +31,29 @@
 
     $('.next-btn').click(function(){
       img_num++;
-      console.log('length = ', $('.slider').length)
       if(img_num > 2) { img_num = 0; }
+
+      var slider_length = $('.slider').length;
       var prev_num = img_num == 0 ? 2 : img_num - 1;
-      var next_num = img_num == $('.slider').length-1 ? 0 : img_num + 1;
+      var next_num = img_num == slider_length-1 ? 0 : img_num + 1;
       console.log(prev_num, img_num, next_num);
       $('.sliders > .slider').removeClass('prev next current');
       $('.sliders > .slider').eq(img_num).addClass('current');
+      $('.sliders > .slider').eq(prev_num).addClass('prev')
+      $('.sliders > .slider').eq(next_num).addClass('next')
+    })
 
+    $('.prev-btn').click(function(){
+      console.log('prev')
+      var slider_length = $('.slider').length;
+      img_num--;
+      if(img_num < 0) { img_num = slider_length - 1; }
+
+      var prev_num = img_num == 0 ? 2 : img_num - 1;
+      var next_num = img_num == slider_length - 1 ? 0 : img_num + 1;
+      console.log(prev_num, img_num, next_num);
+      $('.sliders > .slider').removeClass('prev next current');
+      $('.sliders > .slider').eq(img_num).addClass('current');
       $('.sliders > .slider').eq(prev_num).addClass('prev')
       $('.sliders > .slider').eq(next_num).addClass('next')
     })
